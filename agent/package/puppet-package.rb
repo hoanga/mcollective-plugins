@@ -45,7 +45,6 @@ module MCollective
                     reply[:outdated_packages] = []
                 # Exit code 100 means package updates available
                 elsif reply[:exitcode] == 100
-                    outdated_packages = do_yum_outdated_packages(reply[:output])
                     reply[:outdated_packages] = do_yum_outdated_packages(reply[:output])
                 else
                     reply.fail! "Yum check-update failed, exit code was #{reply[:exitcode]}"
